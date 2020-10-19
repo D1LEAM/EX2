@@ -5,8 +5,7 @@ public class Student {
     private int stuId;
     private String major;
     private Course[] courses;
-    //¹¹Ôìº¯Êı
-    public Student() {//²»ÒªÍü
+     public Student() {
         super();
         courses = new Course[3];
     }
@@ -23,7 +22,6 @@ public class Student {
         this.major = major;
         courses = new Course[3];
     }
-    //ĞŞ¸Ä»ñÈ¡ÊôĞÔname,id,major
     public String getStuName() {
         return stuName;
     }
@@ -43,14 +41,13 @@ public class Student {
     public void setMajor(String major) {
         this.major = major;
     }
-    //Ñ§ÉúÑ¡¿Î£»
     public boolean addCourse(Course course){
         boolean flag=false;
         if(!isSelectedCourse(course)&&isNullCourse(course)){
             for(int i=0;i<this.courses.length;i++){
                 if(courses[i]==null){
                     courses[i]=course;
-                    course.addStudent(this);//¿Î³ÌÒ²ÒªÌí¼ÓÑ§Éú
+                    course.addStudent(this);
                     flag=true;
                     break;
                 }
@@ -58,14 +55,13 @@ public class Student {
         }
         return flag;
     }
-    //Ñ§ÉúÒÆ³ı¿Î³Ì
     public boolean removeCourse(Course course){
         boolean flag=false;
         if(isSelectedCourse(course)){
             for(int i=0;i<this.courses.length;i++){
                 if(courses[i]==course){
                     courses[i]=null;
-                    course.removeStudent(this);//ÔÚ¿Î³ÌÖĞÒÆ³ıÑ§Éú
+                    course.removeStudent(this);   
                     flag=true;
                     break;
                 }
@@ -74,9 +70,9 @@ public class Student {
         }
         return flag;
     }
-    //ÏÔÊ¾Ñ§ÉúËùÑ¡µÄ¿Î³Ì
+    
     public void displayCourse(){
-        System.out.println("Ñ§Éú"+this.stuName+"ËùÑ¡¿Î³ÌÓĞ£º");
+        System.out.println("å­¦ç”Ÿ"+this.stuName+"æ‰€é€‰è¯¾ç¨‹æœ‰ï¼š");
         for(Course c:courses){
             if(c!=null){
                 System.out.print(c.getName()+" ");
@@ -84,8 +80,6 @@ public class Student {
         }
         System.out.println();
     }
-
-    //×Ó·½·¨1£º¿ÎÊÇ·ñ±»Ñ¡¹ı
     public boolean isSelectedCourse(Course course){
         boolean flag=false;
         for(Course c:courses){
@@ -96,7 +90,6 @@ public class Student {
         }
         return flag;
     }
-    //×Ó·½·¨2£ºÑ§ÉúÊÇ·ñ»¹ÓĞÑ¡ĞŞ¿ÎÎ»ÖÃ
     public boolean isNullCourse(Course course){
         boolean flag=false;
         for(Course c:courses){
