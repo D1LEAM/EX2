@@ -4,7 +4,6 @@ public class Teacher {
     private int id;
     private String teacherName;
     public Course[] courses;
-    //构造函数
     public Teacher() {
         super();
         courses= new Course[3];
@@ -14,7 +13,6 @@ public class Teacher {
         this.teacherName=teacherName;
         courses = new Course[3];
     }
-    //修改或是添加属性
     public int getId() {
         return id;
     }
